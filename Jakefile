@@ -7,7 +7,7 @@ const exec = require('child_process').execSync
  */
 
 /** Build CSS to be used by Marp HTML presentations */
-rule('dist/%.css', 'lib/%.scss', function () {
+rule('src/%.css', 'lib/%.scss', function () {
   exec(`mkdir -p dist`)
   exec(`node-sass \
           --importer node_modules/node-sass-package-importer/dist/cli.js \
@@ -15,25 +15,25 @@ rule('dist/%.css', 'lib/%.scss', function () {
 })
 
 /** Build slides HTML from Markdown with Marp */
-rule(`dist/%-slides.html`, 'src/%.md', ['dist/local.css'], function () {
+rule(`dist/%-slides.html`, 'src/%.md', ['src/local.css'], function () {
   exec(`marp --engine ./lib/marp-engine.js \
-          --theme dist/local.css \
+          --theme src/local.css \
           --html ${this.source} -o ${this.name} 2>&1`)
 })
 
 /** Build slides PDF */
-rule(`dist/%-slides.pdf`, 'src/%.md', ['dist/local.css'], function () {
+rule(`dist/%-slides.pdf`, 'src/%.md', ['src/local.css'], function () {
   exec(`node ./scripts/marp-cli-wrapper.js \
             --engine ./lib/marp-engine.js \
-            --theme dist/local.css \
+            --theme src/local.css \
             --html ${this.source} -o ${this.name} 2>&1`)
 })
 
 /** Build slide images */
-rule(`dist/%-slides.001.png`, 'src/%.md', ['dist/local.css'], function () {
+rule(`dist/%-slides.001.png`, 'src/%.md', ['src/local.css'], function () {
   let dest = this.name.replace('.001', '')
   exec(`marp --engine ./lib/marp-engine.js \
-          --theme dist/local.css \
+          --theme src/local.css \
           --html ${this.source} --images png -o ${dest} 2>&1`)
 })
 
@@ -53,13 +53,13 @@ rule(`dist/%-slides.mp4`, `dist/%-slides.script`, function () {
 })
 
 /** Default task: build HTML files */
-task('slides-html', ['dist/sars2-biology-slides.html'])
+task('slides-html', ['dist/%-slides.html'])
 
 /** Build HTML files */
-task('slides-pdf', ['dist/sars2-biology-slides.pdf'])
+task('slides-pdf', ['dist/%-slides.pdf'])
 
 /** Build video files */
-task('slides-video', ['dist/sars2-biology-slides.mp4'])
+task('slides-video', ['dist/%-slides.mp4'])
 
 /** Build vuepress site that provides overall index */
 task('site', function () {

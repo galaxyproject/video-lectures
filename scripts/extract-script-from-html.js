@@ -1,6 +1,6 @@
 const doc = `
 Usage:
-  extract-script-from-html.js <slides_html> --translate=YAML 
+  extract-script-from-html.js <slides_html> --translate=YAML
 `
 
 const fs = require('fs')
@@ -35,5 +35,5 @@ $('section').each((slideIndex, slideElement) => {
       textForSlide.push($(el).text().replace(/\n/g, ' '))
     })
   // console.log( translate( textForSlide.join( ". " ) ) )
-  process.stdout.write(`<speak>${translate(textForSlide.join('. '))}</speak>\n`)
+  process.stdout.write(` ${translate(textForSlide.join('. '))}\n`)
 })
