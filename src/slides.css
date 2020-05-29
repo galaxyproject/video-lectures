@@ -1,0 +1,73 @@
+
+
+/* @theme local */
+
+section {
+  width: 1280px;
+  height: 960px;
+  font-size: 1rem;
+  padding: 40px;
+  background-color: white;
+}
+
+:root {
+  width: 1280px;
+  height: 960px;
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+  color: red;
+}
+
+.document {
+  display: none;
+  display: none;
+}
+
+
+
+.html h1 {
+  font-size: 2rem;
+  color: blue;
+}
+
+
+.left-col{
+  width: 50%;
+  float: left;
+  display: block;
+}
+
+
+.right-col{
+  width: 50%;
+  float: right;
+  display: block;
+}
+
+
+.double{
+  width: 90%;
+  align-self: center;
+  padding: 0.1rem;
+  margin: 0.1rem;
+  display: block;
+}
+
+
+code {
+  font-family: Consolas,"courier new";
+  color: gray;
+  background-color: #f1f1f1;
+  padding: 2px;
+  font-size: 80%%;
+}
+
+.speaked {
+  width: 100%;
+  position: fixed;
+  display: none;
+}
