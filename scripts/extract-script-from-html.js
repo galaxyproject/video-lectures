@@ -24,16 +24,16 @@ function translate(str) {
 // Load the HTML document
 const $ = cheerio.load(fs.readFileSync(options['<slides_html>']))
 
+
 // Iterate over each slide
-$('section').each((slideIndex, slideElement) => {
+$('.section').each((slideIndex, slideElement) => {
   // Extract all elements that should be spoken from slide contents,
   // and concatenate into a single line.
   textForSlide = []
-  $(slideElement)
-    .find('.speak, .speak-only')
-    .each((_, el) => {
-      textForSlide.push($(el).text().replace(/\n/g, ' '))
+  content =  cheerio.load(slideElement)
+  content('.spoken').each((_,el)=> {
+      textForSlide.push(content(el).text().replace(/\n/g,' '))
     })
   // console.log( translate( textForSlide.join( ". " ) ) )
-  process.stdout.write(` ${translate(textForSlide.join('. '))}\n`)
+  process.stdout.write(` ${translate(textForSlide.join(' '))}\n`)
 })
