@@ -289,7 +289,7 @@ author: "Miss Bumblebee"
 
 
 :::::{ .spoken  .document}
-In Pandoc, One Basic structure of the document is the header. It contains metadata about the document, and generally require a title, date, abd authors. It is used to build a cover slide containing the metadata. For the moment, this slide is deactivated because it causes problems with the parsing looking for speech paragraphs. The video cannot be built with a discordance between the number of slides and the lines of text. As we cannot modify the title slide, we can't  generate enough lines for the voice. 
+In Pandoc, One Basic structure of the document is the header. It contains metadata about the document, and generally require a title, date, abd authors. It is used to build a cover slide containing the metadata. For the moment, this slide is deactivated because it causes problems with the parsing looking for speech paragraphs. The video cannot be built with a discordance between the number of slides and the lines of text. As we cannot modify the title slide, we can't  generate enough lines for the voice.
 ::::::::::
 
 
@@ -300,7 +300,6 @@ In Pandoc, One Basic structure of the document is the header. It contains metada
 A new slide is created for each level 1 header `# Header`.
 
 To avoid the repetition of titles in the Main Document, use the `.slide_only` class.
-
 
 ```
 # [Document Structure ]{ .slide_only}
@@ -313,8 +312,10 @@ If you wish to hide a whole slide, use the `.slide_only` as such :
 # Document Structure { .slide_only}
 ```
 
+
+
 :::::{ .spoken .document}
-You do not need to insert a line to separate slides in pandoc markdown. The change of is done at each top level header. This permit to  not have random lines appearing in the hands-on  document. If you wish to continue display a title across several slides, use the slide only tag to hide the additional titles in the main HTML document.
+Contrary to other conversion tools, you do not need to insert a line to separate slides in pandoc markdown. The change of slide is done at each top level header. This permits to  not have random lines appearing in the hands-on  document. If you wish to continue display a title across several slides, use the slide only tag to hide the additional titles in the main HTML document. You can also use the same tag on the main slide title to silence the whole slide.
 :::::::::
 
 
@@ -371,8 +372,8 @@ This table is useful, but impossible to present in a talk.
 
 
 :::::{ .spoken .document}
-The three tags use to mark the different sets of content are : slide only, document, and spoken. They can be used interchangeably for paragraphs or in line text. The document tag hide the content of the block in the slide show, but displays it in the hand-son document. Here, I am hidding a table that would be counter-productive in the slide show, but display it in the main document.
-The slide only tag hide the content in the hand-on document and display it in the slide show. In this example, I am displaying the image of the hand-on document on the right. I don't wish to include this image in the main document to avoid an infinite loop of self screenshot.
+The three tags used to mark the different sets of content are : document, slide only, and spoken. They can be used interchangeably for paragraphs or in line text. The document tag hide the content of the block in the slide show, but displays it in the hands-on document. Here, I am hidding a table that would be counter-productive in the slide show, but display it in the main document.
+The slide only tag hide the content in the hand-on document and display it in the slide show. In this example, I am displaying the image of the hand-on document on the right. I don't wish to include this image in the main document to avoid an infinite loop of self screenshots.
 Finally, I am currently voicing the content of the spoken tag, that does not appear in either support.
 :::::::::
 
@@ -435,9 +436,9 @@ The .slide_only class :
 ::::::::::::::::::::::::::::::::::::::::
 
 :::::{ .spoken .document}
-Once we have clearly delimited the different set in the main document, the generation of the html will cleanly detangle them. CSS files, used to explicitate the format of our documents, is where the hidding and displaying takes place.
+Once we have clearly delimited the different sets in the main document, the generation of the html will cleanly detangle them. CSS files, used to explicitate the format of our documents, is where the hidding and displaying takes place.
 We hide the different content by changing the display and visibility parameters of each class.
-That is were a standalone HTML file is useful,  the css is passed as an argument to the pandoc tool, and does not need to be specified in the Markdown document. It allows to truly have the same original document for all supports.
+That is were a standalone HTML file is useful, the css is passed as an argument to the pandoc tool, and does not need to be specified in the Markdown document. It allows to truly have the same original document for all supports.
 :::::::::
 
 # [Usage]{.bignbold} { .maintitle}
@@ -463,7 +464,7 @@ yarn jake dist/How-to-slides.html
 
 :::::{ .spoken .document}
 Using the tools are made very easy by the usage of yarn.
-The format of the output names is composed by the name of the original file, and the specific suffix of each output : document dot HTML for the hands-on material, slides dot HTML for the slide show, and slides dot MP four for the video.
+The format of the output names is composed by the name of the original file, , without extension, and the specific suffix of each output : document dot HTML for the hands-on material, slides dot HTML for the slide show, and slides dot MP four for the video.
 :::::::::
 
 
@@ -509,6 +510,8 @@ References :
 ~   Ari : [https://github.com/jhudsl/ari](https://github.com/jhudsl/ari)
 ~   Pandoc : [https://pandoc.org/](https://pandoc.org/)
 ~   wkhtmltoimage : [https://wkhtmltopdf.org/](https://wkhtmltopdf.org/)
+~   Github repository [git@github.com:Delphine-L/covid-lessons.git]{git@github.com:Delphine-L/covid-lessons.git}
+~   Slides : [https://github.com/Delphine-L/covid-lessons/blob/master/How-to-slides.html](https://github.com/Delphine-L/covid-lessons/blob/master/How-to-slides.html)
 
 Authors :
 ~   Delphine Larivière
@@ -521,10 +524,11 @@ Authors :
 
 
 :::::{ .spoken }
-To all of you who are talking at this conference, I know you understand the struggle of adding correction to a talk video. The text-to-speech technology solve this problem, as it only necessitate writing editing.
+To all of you who have beem preparing talks for this conference, I know you understand the struggle of adding correction to a talk video. The text-to-speech technology solve this problem, as it only necessitate writing editing.
 Another advantage of this project is the centralization of all content in a unique document, making maintenance of the material much easier.
 In this project future, we want to adapt this tool to the jekyll software used by the Galaxy Training Network to convert markdown to HTML. This would permit an easier maintenance of tutorials, and the opportunity to propose video lecture. Ideally, this would become a workflow in Galaxy for an easy use.
 
-Thank you for your attention.
+Thank you for your attention. And thank you to  my co-authors and the Galaxy Project ,
+
 I regret to not be abble to be here for the question session of the Eastern hemisphere, but please don't hesitate to find me in a Bird of a feather event, or to contact me on the BCC 2020 discord if you have any question.
 :::::::::
