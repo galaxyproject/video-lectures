@@ -134,11 +134,8 @@ From the same HTML slide show, we extract one image per slide, using a tool that
 
 
 :::::{ .spoken .document}
-From this 2 parts, we assemble the video with ari package. Ari is a R package that uses Amazon Polly services to convert text to speech, and stiches together voice and images to produce a video. It is developped in Johns Hopkins Data Science Lab. The script file used to generate the video contains one line per slide, making it easy to use it as a base to generate subtitles.
+From this 2 parts, we assemble the video with ari package. Ari is a R package that uses Amazon Polly services to convert text to speech, and stiches together voice and images to produce a video. It is developped in Johns Hopkins Data Science Lab. As the script file used to generate the video contains one line of text per slide, it is easy to modify it  to generate subtitles.
 :::::::::
-
-
-
 
 
 # [How it works]{ .slide_only}
@@ -154,7 +151,7 @@ From this 2 parts, we assemble the video with ari package. Ari is a R package th
 
 
 :::::{ .spoken .document}
-All the tools are encapsulated in scripts managed with yarn. You simply need to ask for one of the possible output, and the necessary steps are run automatically.
+All the tools are encapsulated in scripts managed with yarn. You simply need to provide the path for one of the possible output, and the necessary steps are run automatically.
 :::::::::
 
 
@@ -169,8 +166,9 @@ The document contains :
 
 
 :::::{ .spoken .document}
-Let's start with your initial material in Markdown. One document will contain four set of content : The biggest set is the common core between all supports. There are the two mutually exclusive sets containing the content to be displayed only in the slide show, or only in the hands-on document. The last set contain paragraphs destined to be read by the artificial voice. This set can often overlap with the text dedicated to the hands-on document.
-These seta re marked by Markdown tags. For those of you who are not familiar with markdown, I will present the lanquage rapidly before looking into these specific tags.
+So, everything starts with our initial material in Markdown. This document will contain four sets of content : The biggest set is the common core between all supports. There are two mutually exclusive sets corresponding to the content to be displayed only in the slide show, or only in the hands-on document. The last set contain paragraphs destined to be read by the artificial voice. This set can often overlap with the explanatory text dedicated to the hands-on document.
+These set are identified by Markdown tags. For those of you who are not familiar with markdown, I will present the lanquage rapidly before looking into these specific tags.
+
 :::::::::
 
 
@@ -216,8 +214,10 @@ YAFIYGI format : you asked for it you got it. Form is encoded with tags in the d
 
 
 :::::{ .spoken  .document}
-Markdown is a text format used to generate html pages. There is no formating in the raw text, the formatting will be described in a css file and applied when the markdown is converted into html. For example, in this slide, you can see that titles are described with hashtags. The top level with one, and one more for each lower level. Lists can be encoded with number for ordered lists, or hyphens for non ordered one.  The first number of an ordered list is set to the number in the support,  but the following will increment by 1 independently of the number written in the markdown.
-Markdown is a format pretty simple to use, but it is important to notice that the spacing is very important and ask for some riguor.
+Markdown is a text format used to generate html pages. There is no formating in the raw text, as the formatting will be described in a css file and applied when the markdown is converted into html.
+For example, in this slide, you can see that titles are described with hashtags. The top level with one, and one more for each lower level. Lists can be encoded with number for ordered lists, or hyphens for non ordered one.  The first number of an ordered list is set to the number in the support,  but the following will increment by 1 independently of the number actually written in the markdown.
+Markdown is a format pretty simple to use, but it is important to notice that it is very sensitive to spacing and necessitate some riguor.
+
 ::::::::::
 
 
@@ -266,8 +266,8 @@ Id
 ~   { #name_id }
 
 :::::{ .spoken .document }
-Markdown comes in many flavors when the elements of style become more complex. Every platform has different syntaxes to apply a certain formating to part of the document. In this version of pandoc, you can caracterize a special fragment of line by square brackets around the word, and special paragraphs with collons. The start of the paragraph is marked with at least three colons, and the end by the next line of collons containing more colons than the first one.
-The name between brackets are the names of the style that we will apply to the content.
+Although used by a lot of tools, Markdown comes in many flavors when the elements of style become more complex. Every platform has different syntaxes to apply a certain formating to part of the document. In this version of pandoc, you can caracterize a special fragment of line by square brackets around the word, and special paragraphs with flanking colons. The start of the paragraph is marked with at least three colons, and the end by the next line of collons containing more colons than the first one.
+The name between brackets are the names of the style that will be applied to the content.
 :::::::::
 
 
@@ -289,7 +289,7 @@ author: "Miss Bumblebee"
 
 
 :::::{ .spoken  .document}
-In Pandoc, One Basic structure of the document is the head. It appear to be build as a slide, but it will contain the metadata of your document: Title, author, licence an others. For the moment, this slide is deactivated because it causes problems with the parsing looking for speech paragraphs.
+In Pandoc, One Basic structure of the document is the header. It contains metadata about the document, and generally require a title, date, abd authors. It is used to build a cover slide containing the metadata. For the moment, this slide is deactivated because it causes problems with the parsing looking for speech paragraphs. The video cannot be built with a discordance between the number of slides and the lines of text. As we cannot modify the title slide, we can't  generate enough lines for the voice. 
 ::::::::::
 
 
