@@ -11,6 +11,13 @@
   justify-content: center;
 }
 
+.everywhere {
+  display: block !important;
+  padding: 0.5rem;
+  justify-content: center;
+  visibility: visible  !important;
+}
+
 .col .document {
   padding-top: 3rem;
   justify-content: center;
@@ -21,8 +28,8 @@
 }
 
 .slide_only {
-  display: none !important;
-  visibility: hidden  !important;
+  display: none ;
+  visibility: hidden ;
   position: static;
 }
 
