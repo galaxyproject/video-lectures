@@ -22,7 +22,7 @@ BCC2020, July 19th
 :::::{ .spoken }
 
 Hello everyone, thank you for connecting to this talk. My name is Delphine, but I am communicating with you through an artificial voice called Joanna. I work at the Pennsylvania State University, with the Galaxy Team. I am here today to talk about the automatic generation of training material, that has been used to generate this presentation.
-
+This work has initially been started with James Taylor and Jeff Leek's Lab, and was one of the projects he could not finish. We took over the project to continue his work for open science.
 
 ::::::::::
 
@@ -70,9 +70,9 @@ Automatic generation of Content
 :::::{ .spoken  .document}
 
 Online training is a wonderful tool to learn new skills at our own rythm. Trainers often have to consider the best way to convey their knowledge. Some people learn better by reading, some other by listening or doing. Ideally all material would be available in all formats, but it can be very time consuming.
-I have been participating to the Galaxy Training community. Our goal is to provide quality training material to trainers and trainees. Facilitating the contribution of new materials, and the maintenance of older ones, can participate to this effort to make knowledge accessible. To improve the time spent on formating these training,  we are building a workflow to generate three type of support from a single markdown document : A hands-on page, a slide show, and a video lecture using text-to-speech...
+I have been participating to the Galaxy Training community. Our goal is to provide quality training material to trainers and trainees. Facilitating the contribution of new materials, and the maintenance of older ones, can participate to this effort to make knowledge accessible. To improve the time spent on formatting these trainings,  we are building a workflow to generate three type of support from a single markdown document : A hands-on page, a slide show, and a video lecture using text-to-speech...
 In this lecture, we will show how to generate these different types of teaching material easily.
-First, I will talk about the general processing workflow and tools that we used for this project. I will explain how to structure the original document, and how to control each output. Finally, I will talk about to generate the different documents, and the future evolution of this project...
+First, I will talk about the general processing workflow and tools that we used for this project. I will explain how to structure the original document, and how to control each output. Finally, I will talk about how we generate the different documents, and the future evolution of this project...
 
 ::::::::::
 
@@ -86,12 +86,14 @@ First, I will talk about the general processing workflow and tools that we used 
 ::::::
 
 Pandoc
- ~ This tool has been selected because it allows the creation of self contained html with different css files
+ ~ Universal document converter
+ ~ Highly configurable
+ ~ Allows the creation of self contained html with different css files
  ~ We use a different css file for the Main document and the slides
 
 
 :::::{ .spoken  .document}
-The original document is written in Markdown, and we start by creating two documents from it. One is the full hands-on document, and the other is a slide show. We selected pandoc to generate these HTML files because it allows us to use our own CSS files, and to create stand-alone html files. Standalone html files are easier to treat, because it eliminates dependencies problems. It also allows the use of css, and without including it in the markdown, improving the neutrality of the original material.
+The original document is written in Markdown, and we start by creating two documents from it. One is the full hands-on document, and the other is a slide show. We perform these conversion using the pandoc tool. Pandoc is a universal document converter. It supports dozen of formats, including several flavors of markdown and proprietary formats. One of the reason we selected this tool to generate the HTML documents, is because it allows us to create stand-alone html files. Standalone html files are easier to treat, because it eliminates dependencies problems. It also allows the use of css, and without including it in the markdown, improving the neutrality of the original material. In addition, the integration  of pandoc to the workflow could allow us to expand the range of material we can produce in the future.
 :::::::::
 
 
@@ -107,13 +109,13 @@ The original document is written in Markdown, and we start by creating two docum
 :::::::::
 
 wkhtmltoimage
- ~ Extract an image per HTML slide
+ ~ Extract one image per HTML slide
  ~ Independant of how we build the HTML
 
 
 :::::{ .spoken .document}
-Once we generated the slide show document, we extract the text dedicated to the text-to-speech. They are identified by special tags in the markdown documant. We parse the html document with a javascript script to extract the text destined to be speaked. From this ontent, we create a script file, with a line corresponding to the speech of a slide. These extracted blocks of text can often be the same one that are used to be more descriptive in the main document.
-From the same HTML slide show, we extract one image per slide, using a tool that neither the artificial voice nor me are sure how to pronounce. This tool has one great advantage : it is not dependant on how we built our H.T.M.L. , making it very adaptable. We now have one image, and one line per slide in the script file.
+Once we generated the slide show document, we extract the text dedicated to the text-to-speech. They are identified by special tags in the markdown document. We parse the html document with a javascript script to extract the text destined to be spoken. From this content, we create a script file, with a line corresponding to the speech of a slide. These extracted blocks of text can often be the same one that are used to be more descriptive in the main document.
+From the same HTML slide show, we extract one image per slide, using a tool that neither the artificial voice nor me are sure how to pronounce. This tool has one great advantage : it is not dependent on how we built our H.T.M.L. , making it very adaptable. We now have one image, and one line per slide in the script file.
 :::::::::
 
 
@@ -214,9 +216,9 @@ YAFIYGI format : you asked for it you got it. Form is encoded with tags in the d
 
 
 :::::{ .spoken  .document}
-Markdown is a text format used to generate html pages. There is no formating in the raw text, as the formatting will be described in a css file and applied when the markdown is converted into html.
+Markdown is a text format used to generate html pages. There is no formatting in the raw text, as the formatting will be described in a css file and applied when the markdown is converted into html.
 For example, in this slide, you can see that titles are described with hashtags. The top level with one, and one more for each lower level. Lists can be encoded with number for ordered lists, or hyphens for non ordered one.  The first number of an ordered list is set to the number in the support,  but the following will increment by 1 independently of the number actually written in the markdown.
-Markdown is a format pretty simple to use, but it is important to notice that it is very sensitive to spacing and necessitate some riguor.
+Markdown is a format pretty simple to use, but it is important to notice that it is very sensitive to spacing and necessitate some rigor.
 
 ::::::::::
 
@@ -266,8 +268,9 @@ Id
 ~   { #name_id }
 
 :::::{ .spoken .document }
-Although used by a lot of tools, Markdown comes in many flavors when the elements of style become more complex. Every platform has different syntaxes to apply a certain formating to part of the document. In this version of pandoc, you can caracterize a special fragment of line by square brackets around the word, and special paragraphs with flanking colons. The start of the paragraph is marked with at least three colons, and the end by the next line of collons containing more colons than the first one.
+Although used by a lot of tools, Markdown comes in many flavors when the elements of style become more complex. Every platform has different syntaxes to apply a certain formatting to part of the document. In this version of pandoc, you can tag a container with a class name or ID between curly brackets. The containers limits are defined by square brackets in case of in-line content, and with flanking colons for special paragraphs. The start of the paragraph is marked with at least three colons, and the end by the next line of colons containing more colons than the first one.
 The name between brackets are the names of the style that will be applied to the content.
+A content class is identified by a period followed by the class name, and its ID is identified by a hashtag followed by the ID.
 :::::::::
 
 
@@ -289,7 +292,7 @@ author: "Miss Bumblebee"
 
 
 :::::{ .spoken  .document}
-In Pandoc, One Basic structure of the document is the header. It contains metadata about the document, and generally require a title, date, abd authors. It is used to build a cover slide containing the metadata. For the moment, this slide is deactivated because it causes problems with the parsing looking for speech paragraphs. The video cannot be built with a discordance between the number of slides and the lines of text. As we cannot modify the title slide, we can't  generate enough lines for the voice.
+In Pandoc, One Basic structure of the document is the header. It contains metadata about the document, and generally require a title, date, and authors. It is used to build a cover slide containing the metadata. For the moment, this slide is deactivated because it causes problems with the parsing looking for speech paragraphs. The video cannot be built with a discordance between the number of slides and the lines of text. As we cannot modify the title slide, we can't  generate enough lines for the voice.
 ::::::::::
 
 
@@ -372,7 +375,7 @@ This table is useful, but impossible to present in a talk.
 
 
 :::::{ .spoken .document}
-The three tags used to mark the different sets of content are : document, slide only, and spoken. They can be used interchangeably for paragraphs or in line text. The document tag hide the content of the block in the slide show, but displays it in the hands-on document. Here, I am hidding a table that would be counter-productive in the slide show, but display it in the main document.
+The three tags used to mark the different sets of content are : document, slide only, and spoken. They can be used interchangeably for paragraphs or in line text. The document tag hide the content of the block in the slide show, but displays it in the hands-on document. Here, I am hiding a table that would be counter-productive in the slide show, but display it in the main document.
 The slide only tag hide the content in the hand-on document and display it in the slide show. In this example, I am displaying the image of the hand-on document on the right. I don't wish to include this image in the main document to avoid an infinite loop of self screenshots.
 Finally, I am currently voicing the content of the spoken tag, that does not appear in either support.
 :::::::::
@@ -436,7 +439,7 @@ The .slide_only class :
 ::::::::::::::::::::::::::::::::::::::::
 
 :::::{ .spoken .document}
-Once we have clearly delimited the different sets in the main document, the generation of the html will cleanly detangle them. CSS files, used to explicitate the format of our documents, is where the hidding and displaying takes place.
+Once we have clearly delimited the different sets in the main document, the generation of the html will cleanly detangle them. CSS files, used to explicitate the format of our documents, is where the hiding and displaying takes place.
 We hide the different content by changing the display and visibility parameters of each class.
 That is were a standalone HTML file is useful, the css is passed as an argument to the pandoc tool, and does not need to be specified in the Markdown document. It allows to truly have the same original document for all supports.
 :::::::::
@@ -510,7 +513,7 @@ References :
 ~   Ari : [https://github.com/jhudsl/ari](https://github.com/jhudsl/ari)
 ~   Pandoc : [https://pandoc.org/](https://pandoc.org/)
 ~   wkhtmltoimage : [https://wkhtmltopdf.org/](https://wkhtmltopdf.org/)
-~   Github repository [git@github.com:Delphine-L/covid-lessons.git]{git@github.com:Delphine-L/covid-lessons.git}
+~   Github repository [git@github.com:Delphine-L/covid-lessons.git](git@github.com:Delphine-L/covid-lessons.git)
 ~   Slides : [https://github.com/Delphine-L/covid-lessons/blob/master/How-to-slides.html](https://github.com/Delphine-L/covid-lessons/blob/master/How-to-slides.html)
 
 Authors :
@@ -524,11 +527,11 @@ Authors :
 
 
 :::::{ .spoken }
-To all of you who have beem preparing talks for this conference, I know you understand the struggle of adding correction to a talk video. The text-to-speech technology solve this problem, as it only necessitate writing editing.
+To all of you who have been preparing talks for this conference, I know you understand the struggle of adding correction to a talk video. The text-to-speech technology solve this problem, as it only necessitate editing text.
 Another advantage of this project is the centralization of all content in a unique document, making maintenance of the material much easier.
 In this project future, we want to adapt this tool to the jekyll software used by the Galaxy Training Network to convert markdown to HTML. This would permit an easier maintenance of tutorials, and the opportunity to propose video lecture. Ideally, this would become a workflow in Galaxy for an easy use.
 
 Thank you for your attention. And thank you to  my co-authors and the Galaxy Project ,
 
-I regret to not be abble to be here for the question session of the Eastern hemisphere, but please don't hesitate to find me in a Bird of a feather event, or to contact me on the BCC 2020 discord if you have any question.
+I regret to not be able to be here for the question session of the Eastern hemisphere, but please don't hesitate to find me in a Bird of a feather event, or to contact me on the BCC 2020 discord if you have any question.
 :::::::::
