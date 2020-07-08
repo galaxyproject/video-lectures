@@ -6,45 +6,27 @@ const exec = require('child_process').execSync
  * extracting narration scripts, and building videos (with ari).
  */
 
-/** Build CSS to be used by Marp HTML presentations
-rule('src/%.css', 'src/%.scss', function () {
-  exec(`mkdir -p dist`)
-  exec(`node-sass \
-          --importer node_modules/node-sass-package-importer/dist/cli.js \
-          ${this.source} > ${this.name}`)
-}) */
-
-/** Build slides HTML from Markdown with Marp
-rule(`dist/%-slides.html`, 'src/%.md', ['src/slides.css'], function () {
-  exec(`marp --engine ./lib/marp-engine.js \
-          --html ${this.source} -o ${this.name} 2>&1`)
-}) */
-
-/** Build slides PDF */
-rule(`dist/%-slides.pdf`, 'src/%.md', ['src/slides.css'], function () {
-  exec(`node ./scripts/marp-cli-wrapper.js \
-            --engine ./lib/marp-engine.js \
-            --html ${this.source} -o ${this.name} 2>&1`)
-})
 
 /** Build slide images */
-rule(`dist/%-slides.001.png`, 'src/%.md', ['src/slides.css'], function () {
-  let dest = this.name.replace('.001', '')
-  exec(`marp --engine ./lib/marp-engine.js \
-          --html ${this.source} --images png -o ${dest} 2>&1`)
+rule(`dist/%-slides.001.png`, 'dist/%-slides.html', function () {
+  let basename = this.source.substring(0, this.source.lastIndexOf('.'))
+  console.log(this.source)
+  console.log(basename)
+  jake.attemptRule(basename + '.html', jake.currentNamespace).execute()
+  jake.attemptRule(basename + '.script', jake.currentNamespace).execute()
+  exec(`/bin/bash ./scripts/create_images.sh -h ${this.source} -s ${basename}.script -o ${basename} 2>&1`)
 })
-
 
 /** Build slides HTML from Markdown with pandoc */
 rule(`dist/%-slides.html`, 'src/%.md', ['src/slides.css'], function () {
-  exec(`pandoc -t slidy ${this.source} \
+  exec(`pandoc --webtex -t slidy+native_spans+native_divs+fenced_divs+bracketed_spans ${this.source} -f markdown+fenced_divs+bracketed_spans+definition_lists+yaml_metadata_block \
            -o ${this.name} --self-contained --css src/slides.css 2>&1`)
 })
 
 /** Build document HTML from Markdown with pandoc */
 rule(`dist/%-document.html`, 'src/%.md', ['src/document.css'], function () {
-  exec(`pandoc  -f markdown_mmd -t html ${this.source} \
-           -o ${this.name} --self-contained --css src/document.css 2>&1`)
+  exec(`pandoc  -f markdown+fenced_divs+bracketed_spans+definition_lists+yaml_metadata_block -t html+native_spans+native_divs ${this.source} \
+           -o ${this.name} --section-divs --self-contained --css src/document.css 2>&1`)
 })
 
 /** Build script from HTML */
@@ -55,9 +37,9 @@ rule(`dist/%-slides.script`, `dist/%-slides.html`, function () {
 
 /** Build video from images and script using ari */
 rule(`dist/%-slides.mp4`, `dist/%-slides.script`, function () {
+  exec(`echo ${jake.currentNamespace}`)
   // Little hack to allow pattern based dependency -- ensures images exist
   let basename = this.name.substring(0, this.name.lastIndexOf('.'))
-  jake.attemptRule(basename + '.001.png', jake.currentNamespace).execute()
   // Run ari
   exec(`./scripts/run_ari_spin.R ${this.name} ${this.source} ${basename}.*.png`)
 })
@@ -70,6 +52,14 @@ task('document-html', ['dist/%-document.html'])
 
 /** Build HTML files */
 task('slides-pdf', ['dist/%-slides.pdf'])
+
+/** Build images */
+task('slides-img', ['dist/%-slides.001.png'])
+
+
+/** Build script */
+task('slides-script', ['dist/%-slides.script'])
+
 
 /** Build video files */
 task('slides-video', ['dist/%-slides.mp4'])
