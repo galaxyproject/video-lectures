@@ -6,22 +6,19 @@ const exec = require('child_process').execSync
  * extracting narration scripts, and building videos (with ari).
  */
 
+ /** Build slides HTML from Markdown with pandoc  for video images (same than html, but need some sizes fixed) */
+ rule(`dist/%-video.html`, 'src/%.md', ['src/video.css'], function () {
+   exec(`pandoc --webtex -t slidy+native_spans+native_divs+fenced_divs+bracketed_spans ${this.source} -f markdown+fenced_divs+bracketed_spans+definition_lists+yaml_metadata_block \
+            -o ${this.name} --self-contained --css src/video.css 2>&1`)
+ })
 
-/** Build slide images */
-rule(`dist/%-slides.001.png`, 'dist/%-slides.html', function () {
-  let basename = this.source.substring(0, this.source.lastIndexOf('.'))
-  console.log(this.source)
-  console.log(basename)
-  jake.attemptRule(basename + '.html', jake.currentNamespace).execute()
-  jake.attemptRule(basename + '.script', jake.currentNamespace).execute()
-  exec(`/bin/bash ./scripts/create_images.sh -h ${this.source} -s ${basename}.script -o ${basename} 2>&1`)
-})
+ /** Build slides HTML from Markdown with pandoc */
+ rule(`dist/%-slides.html`, 'src/%.md', ['src/slides.css'], function () {
+   exec(`pandoc --webtex -t slidy+native_spans+native_divs+fenced_divs+bracketed_spans ${this.source} -f markdown+fenced_divs+bracketed_spans+definition_lists+yaml_metadata_block \
+            -o ${this.name} --self-contained --css src/slides.css 2>&1`)
+ })
 
-/** Build slides HTML from Markdown with pandoc */
-rule(`dist/%-slides.html`, 'src/%.md', ['src/slides.css'], function () {
-  exec(`pandoc --webtex -t slidy+native_spans+native_divs+fenced_divs+bracketed_spans ${this.source} -f markdown+fenced_divs+bracketed_spans+definition_lists+yaml_metadata_block \
-           -o ${this.name} --self-contained --css src/slides.css 2>&1`)
-})
+
 
 /** Build document HTML from Markdown with pandoc */
 rule(`dist/%-document.html`, 'src/%.md', ['src/document.css'], function () {
@@ -29,23 +26,34 @@ rule(`dist/%-document.html`, 'src/%.md', ['src/document.css'], function () {
            -o ${this.name} --section-divs --self-contained --css src/document.css 2>&1`)
 })
 
+
 /** Build script from HTML */
-rule(`dist/%-slides.script`, `dist/%-slides.html`, function () {
-  exec(`node ./scripts/extract-script-from-html.js ${this.source} \
-          --translate=script-rewrite-words.yaml > ${this.name}`)
+rule(`dist/%.script`, 'dist/%-slides.html', function () {
+  exec(`node ./scripts/extract-script-from-html.js ${this.source}  --translate=script-rewrite-words.yaml > ${this.name} 2>&1 `)
 })
 
+
+
+/** Build slide images */
+rule(`dist/%.001.png`, 'dist/%.script', function () {
+  let basename = this.name.substring(0, this.name.indexOf('.'))
+  jake.attemptRule(basename + '-video.html', jake.currentNamespace).execute()
+  exec(`/bin/bash ./scripts/create_images.sh -h  ${basename}-video.html -s  ${this.source} -o ${basename} 2>&1`)
+})
+
+
 /** Build video from images and script using ari */
-rule(`dist/%-slides.mp4`, `dist/%-slides.script`, function () {
-  exec(`echo ${jake.currentNamespace}`)
+rule(`dist/%.mp4`, `dist/%.script`, function () {
   // Little hack to allow pattern based dependency -- ensures images exist
   let basename = this.name.substring(0, this.name.lastIndexOf('.'))
+  jake.attemptRule(basename + '.001.png', jake.currentNamespace).execute()
   // Run ari
   exec(`./scripts/run_ari_spin.R ${this.name} ${this.source} ${basename}.*.png`)
 })
 
 /** Default task: build HTML slides */
 task('slides-html', ['dist/%-slides.html'])
+
 
 /** Default task: build HTML document */
 task('document-html', ['dist/%-document.html'])
@@ -54,11 +62,11 @@ task('document-html', ['dist/%-document.html'])
 task('slides-pdf', ['dist/%-slides.pdf'])
 
 /** Build images */
-task('slides-img', ['dist/%-slides.001.png'])
+task('slides-img', ['dist/%.001.png'])
 
 
 /** Build script */
-task('slides-script', ['dist/%-slides.script'])
+/** task('slides-script', ['dist/%.script']) */
 
 
 /** Build video files */
