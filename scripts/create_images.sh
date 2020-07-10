@@ -21,5 +21,5 @@ count=($(echo $strcount | tr -s " " " "))
 for i in $(seq 1 1 $count) ;
 do
 numero=`printf "%03d" $i`
-wkhtmltoimage -f png --height 1440 --width 2560 "${htmldoc}#(${i})" "${output}.${numero}.png"
+wkhtmltoimage -f png --height 990 --width 1760 "${htmldoc}#(${i})" "${output}.${numero}.png"
 done
