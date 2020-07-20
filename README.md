@@ -38,7 +38,7 @@ Sys.setenv("AWS_ACCESS_KEY_ID" = "","AWS_SECRET_ACCESS_KEY" = "","AWS_DEFAULT_RE
 Write Markdown source files in `src/*.md`.
 
 Jake tasks exist to generate slides in html, pdf, image, and video. For example,
-to generate from the markdown file `src/How-to.md` run:
+to generate from the markdown file `src/How-to.md` run (From the base directory):
 
 - HTML slides: `yarn jake dist/How-to-slides.html`
 - HTML  full page: `yarn jake dist/How-to-document.pdf`
