@@ -10,16 +10,21 @@ Framework to generate HTML, slides (HTML, pdf, images) and narrated videos
 
 ## In the terminal
 
+```
 conda install -y r-essentials nodejs 
 conda install -y -c conda-forge ffmpeg
 npm install yarn
 yarn add jake
+```
+
 
 ## In a R console
 
+```
 install.packages('ari')
 install.packages('aws.polly')
 install.packages('docopt')
+```
 
 # Usage
 
