@@ -26,6 +26,16 @@ install.packages('aws.polly')
 install.packages('docopt')
 ```
 
+# Configuration
+
+To use the video generation function, you need AWS identifiers.
+Add them to the scripts/run\_ari\_spin.R in the line:
+
+```
+Sys.setenv("AWS_ACCESS_KEY_ID" = "","AWS_SECRET_ACCESS_KEY" = "","AWS_DEFAULT_REGION" = "")
+``` 
+
+
 # Usage
 
 Write Markdown source files in `src/*.md`.
