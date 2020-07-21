@@ -14,7 +14,8 @@ Download and install miniconda https://docs.conda.io/en/latest/miniconda.html
 
 ```
 conda install -y r-essentials nodejs 
-conda install -y -c conda-forge ffmpeg
+conda install -y -c conda-forge ffmpeg weasyprint
+
 npm install yarn
 yarn add jake
 ```
