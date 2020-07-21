@@ -27,6 +27,7 @@ yarn add jake
 install.packages('ari')
 install.packages('aws.polly')
 install.packages('docopt')
+install.packages('optparse')
 ```
 
 ## Configuration
