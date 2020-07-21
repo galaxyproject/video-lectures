@@ -5,7 +5,12 @@ Framework to generate HTML, slides (HTML, pdf, images) and narrated videos (usin
 
 ## Installation
 
+Download and install https://wkhtmltopdf.org/downloads.html
+
 ### In the terminal
+
+Download and install miniconda https://docs.conda.io/en/latest/miniconda.html 
+
 
 ```
 conda install -y r-essentials nodejs 
