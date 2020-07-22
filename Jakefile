@@ -3,6 +3,8 @@ const exec = require('child_process').execSync
 const html_style = "+native_spans+native_divs"
 const md_style = "+fenced_divs+bracketed_spans+definition_lists+yaml_metadata_block"
 const slidy_style = "+native_spans+native_divs+fenced_divs+bracketed_spans"
+const acc_key = ""
+const secret_key = ""
 
 
 /**
@@ -49,7 +51,7 @@ rule(`dist/%-slides.pdf`, 'dist/%-slides.html' ,['src/topdf.css'], function () {
 rule(`dist/%.mp4`, `dist/%.001.png`, function () {
   let basename = this.name.substring(0, this.name.lastIndexOf('.'))
   // Run ari
-  exec(`./scripts/run_ari_spin.R ${this.name} ${basename}.script ${basename}.*.png 2>&1`)
+  exec(`./scripts/run_ari_spin.R ${this.name} ${basename}.script ${acc_key} ${secret_key} ${basename}.*.png 2>&1`)
 })
 
 

@@ -1,22 +1,27 @@
 #!/usr/bin/env Rscript
 
+#"Usage:
+#  run_ari.R  -o <output> -s <script> -i <image> -a <accesskey> -k <secretkey>" -> doc
+
+
 "Usage:
-  run_ari.R <output> <script> <image>..." -> doc
+  run_ari.R  <output> <script> <accesskey> <secretkey> <images>... " -> doc
 
 
 library(ari)
 library(docopt)
 library(text2speech)
-library(optparse)
+
+arguments <- docopt(doc,args = commandArgs(trailingOnly = TRUE))
+
+script = readLines( arguments$script )
+images = arguments$images
+output = arguments$output
 
 
-Sys.setenv("AWS_ACCESS_KEY_ID" = "","AWS_SECRET_ACCESS_KEY" = "","AWS_DEFAULT_REGION" = "us-east-2")
+Sys.setenv("AWS_ACCESS_KEY_ID" = arguments$accesskey ,"AWS_SECRET_ACCESS_KEY" = arguments$secretkey ,"AWS_DEFAULT_REGION" = "us-east-2")
 
 # Parse command line
-arguments <- docopt(doc)
-script = readLines( arguments$script )
-images = arguments$image
-output = arguments$output
 
 
 
