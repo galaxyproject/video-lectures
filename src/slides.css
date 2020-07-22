@@ -26,10 +26,7 @@ div.section {
   padding: 2rem ;
 }
 
-.bignbold{
-  font-size: 5rem  !important;
-  margin: 2rem;
-}
+
 
 .authorinfo{
   font-size: 1rem;
@@ -60,6 +57,14 @@ div.section p {
   margin-top: 5rem;
   align-self: center;
   align-content: center;
+  font-size: 5rem ;
+  padding : 1rem;
+  position: absolute;
+}
+
+.bignbold{
+  font-size: 3rem  !important;
+  margin: 2rem;
 }
 
 .slide_only {
@@ -101,6 +106,21 @@ h1::before {
 }
 
 
+.maintitle h1::before {
+  color: black;
+  background: #D5D8DC;
+  position: fixed;
+  bottom: 2%;
+  text-align:right;
+  font-size: 1rem !important;
+  width:100%;
+  left: -10px !important;
+  right: 0;
+  padding-right: 20% !important;
+  margin: 0px !important;
+  content: 'Delphine Lariviere, BCC2020, July 19th' ;
+}
+
 
 h1 {
   color: #34495E;
@@ -125,16 +145,11 @@ h1 {
 
 
 .personal_class {
-  font-family: inherit;
-  white-space: pre-line;
   background-color: #EBEDEF;
   border:1px solid #212F3C;
-  position: relative;
   align-items: center;
-  justify-content: center;
   padding: 1rem;
-  width:80%;
-  margin: 4% 10% 4% 10% ;
+  margin-top: 2rem;
 }
 
 h2 {
@@ -161,49 +176,73 @@ h3 {
   display: none;
 }
 
-.col {
+.two_col {
+  display: block;
+  height: auto;
+  align-self: stretch;
   justify-content: center;
+  padding:  0rem 1rem 2rem 1rem;
+  margin: 1rem;
+  border: 1px solid #AEB6BF;
+}
+
+.two_col_one_row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.two_col::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.two_col_one_row{
+  display: block;
+  height: auto;
+  align-self: stretch;
   align-content: center;
+  justify-content: center;
+  padding:  0rem 1rem 2rem 1rem;
+  margin: 1rem;
+  border: 1px solid #AEB6BF;
+}
+
+
+.col {
+  width: 50%;
+  float: left;
   align-self: center;
+  position: relative;
+}
+
+
+.legend {
+  vertical-align: bottom;
+  span: 2;
+  text-align: center;
+  position:  static;
+  display: block;
+  clear: both;
 }
 
 
 .col p {
   font-size: 80%;
-}
-
-.legend {
-  vertical-align: middle;
-  span: 2;
-  text-align: center;
-  grid-column-start: 1;
-  grid-column-end: 3;
-}
-
-
-.two_col {
-  display: grid;
-  border: 1px solid #AEB6BF;
-  grid-template-columns: 45% 45%;
-  grid-template-rows: auto auto;
   align-self: center;
-  grid-gap: 5px 100px;
   justify-content: center;
-  padding:  0rem 1rem 2rem 1rem;
   margin: 1rem;
+  position: relative;
 }
 
-.two_col_one_row{
-  display: grid;
-  border: 1px solid #AEB6BF;
-  grid-template-columns: 45% 45%;
-  grid-template-rows: auto;
+.col img {
   align-self: center;
-  grid-gap: 5px 100px;
   justify-content: center;
-  padding:  0rem 1rem 2rem 1rem;
   margin: 1rem;
+  position: relative;
 }
+
 
 .double{
   width: 100%;
@@ -236,7 +275,6 @@ pre p {
 code {
   font-family: Consolas,"courier new";
   color: #212F3C;
-  font-size: 80%;
   vertical-align: middle;
   font-weight: 500;
   white-space:pre-wrap !important;
@@ -264,7 +302,7 @@ table {
 
 img  {
   width: 80%;
-  position:relative;
+  position: relative;
   align-self: center;
   visibility: visible;
 }

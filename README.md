@@ -3,9 +3,9 @@
 Framework to generate HTML, slides (HTML, pdf, images) and narrated videos (using ari) from markdown.
 
 
-# Installation
+## Installation
 
-## In the terminal
+### In the terminal
 
 ```
 conda install -y r-essentials nodejs 
@@ -15,7 +15,7 @@ yarn add jake
 ```
 
 
-## In a R console
+### In a R console
 
 ```
 install.packages('ari')
@@ -23,7 +23,7 @@ install.packages('aws.polly')
 install.packages('docopt')
 ```
 
-# Configuration
+## Configuration
 
 To use the video generation function, you need AWS identifiers.
 Add them to the scripts/run\_ari\_spin.R in the line:
@@ -33,7 +33,7 @@ Sys.setenv("AWS_ACCESS_KEY_ID" = "","AWS_SECRET_ACCESS_KEY" = "","AWS_DEFAULT_RE
 ``` 
 
 
-# Usage
+## Usage
 
 Write Markdown source files in `src/*.md`.
 
