@@ -27,16 +27,16 @@ yarn add jake
 install.packages('ari')
 install.packages('aws.polly')
 install.packages('docopt')
-install.packages('optparse')
 ```
 
 ## Configuration
 
 To use the video generation function, you need AWS identifiers.
-Add them to the scripts/run\_ari\_spin.R in the line:
+Add them at the beginning of the Jakefile in the lines:
 
 ```
-Sys.setenv("AWS_ACCESS_KEY_ID" = "","AWS_SECRET_ACCESS_KEY" = "","AWS_DEFAULT_REGION" = "")
+const acc_key = ""  /** enter your AWS_ACCESS_KEY_ID */ 
+const secret_key = "" /** enter your AWS_SECRET_ACCESS_KEY */ 
 ```
 
 
