@@ -6,12 +6,14 @@ yarn add jake
 yarn add rake
 
 ## For Jekyll use
-conda install -y ruby
-gem install --user-install bundler jekyll
+# conda install -y ruby
+# gem install --user-install bundler jekyll
 ##
 
-npm install -g @marp-team/marp-cli
+## For Marp use
+# npm install -g @marp-team/marp-cli
+## 
 
-R CMD "install.packages('ari')"
-R CMD "install.packages('aws.polly')"
-R CMD "install.packages('docopt')"
+R -e "install.packages('ari', repos='http://cran.rstudio.com/')"
+R -e "install.packages('aws.polly', repos='http://cran.rstudio.com/')"
+R -e "install.packages('docopt', repos='http://cran.rstudio.com/')"
