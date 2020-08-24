@@ -1,6 +1,6 @@
-conda install -y r-essentials
-conda install -y nodejs
-conda install -y -c conda-forge ffmpeg
+conda install -y r-essentials nodejs
+conda install -y -c conda-forge ffmpeg weasyprint
+
 npm install yarn
 yarn add jake
 yarn add rake
@@ -12,7 +12,7 @@ yarn add rake
 
 ## For Marp use
 # npm install -g @marp-team/marp-cli
-## 
+##
 
 R -e "install.packages('ari', repos='http://cran.rstudio.com/')"
 R -e "install.packages('aws.polly', repos='http://cran.rstudio.com/')"

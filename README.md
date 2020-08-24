@@ -11,23 +11,8 @@ Download and install https://wkhtmltopdf.org/downloads.html
 
 Download and install miniconda https://docs.conda.io/en/latest/miniconda.html
 
+Run 'script/install.sh'
 
-```
-conda install -y r-essentials nodejs
-conda install -y -c conda-forge ffmpeg weasyprint
-
-npm install yarn
-yarn add jake
-```
-
-
-### In a R console
-
-```
-install.packages('ari')
-install.packages('aws.polly')
-install.packages('docopt')
-```
 
 ## Configuration
 
@@ -35,8 +20,8 @@ To use the video generation function, you need AWS identifiers.
 Add them at the beginning of the Jakefile in the lines:
 
 ```
-const acc_key = ""  /** enter your AWS_ACCESS_KEY_ID */ 
-const secret_key = "" /** enter your AWS_SECRET_ACCESS_KEY */ 
+const acc_key = ""  /** enter your AWS_ACCESS_KEY_ID */
+const secret_key = "" /** enter your AWS_SECRET_ACCESS_KEY */
 ```
 
 
