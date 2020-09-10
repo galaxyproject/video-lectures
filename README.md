@@ -75,6 +75,6 @@ To display content only in the main document, use `{ .document}`
 To display content only in the slides, use `{ .slide_only}`
 
 
-To mark the content to be spoken in the videos, use `{ .slide_only}`
+To mark the content to be spoken in the videos, use `{ .spoken}`
 
-For more informations, watch the how-to video,
+For more informations, watch the how-to video.
