@@ -7,7 +7,7 @@
     "deasync": "^0.1.19",
     "docopt": "^0.6.2",
     "github-markdown-css": "^4.0.0",
-    "jake": "^10.6.1",
+    "jake": "^10.8.2",
     "js-yaml": "^3.13.1",
     "markdown-it": "^10.0.0",
     "markdown-it-attrs": "^3.0.2",

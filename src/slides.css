@@ -26,7 +26,11 @@ div.section {
   padding: 2rem ;
 }
 
-
+.warning{
+  text-align: center!important;
+  top: 3em;
+  bottom: 3em;
+}
 
 .authorinfo{
   font-size: 1rem;
@@ -37,10 +41,7 @@ div.section {
   text-align: center !important;
 }
 
-div.section p {
-  font-size: 1.5rem;
-  counter-increment: myPage;
-}
+
 
 .maintitle h1 {
   vertical-align: center !important;
@@ -68,6 +69,11 @@ div.section p {
 }
 
 .slide_only {
+  display: inline ;
+  visibility:  visible ;
+}
+
+.slide_only p{
   display: inline ;
   visibility:  visible ;
 }
@@ -102,7 +108,7 @@ h1::before {
   right: 0;
   padding-right: 20% !important;
   margin: 0px !important;
-  content: 'Delphine Lariviere, BCC2020, July 19th' ;
+  content: 'Understanding Galaxy history system' ;
 }
 
 
@@ -118,7 +124,7 @@ h1::before {
   right: 0;
   padding-right: 20% !important;
   margin: 0px !important;
-  content: 'Delphine Lariviere, BCC2020, July 19th' ;
+  content: 'Understanding Galaxy history system' ;
 }
 
 
@@ -225,6 +231,8 @@ h3 {
   position:  static;
   display: block;
   clear: both;
+  margin-left: 3em;
+  margin-right: 3em;
 }
 
 
@@ -307,25 +315,136 @@ img  {
   visibility: visible;
 }
 
+.image  {
+  width: 80%;
+  position: relative;
+  align-self: center;
+  visibility: visible;
+  margin-left: 1em;
+  margin-right: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+
+
+.wide img {
+  height: auto !important;
+  width: 50%  !important;
+  left: 25% !important;
+  align-self: center !important;
+  justify-content: center !important;
+}
+
+.wide {
+  width: 100%;
+  align-self: center;
+ }
+
+.wide p {
+  width: 100%;
+  align-self: center;
+  text-align: center !important;
+}
+
+.verytall img {
+  height: auto !important;
+  width: 40%  !important;
+  left: 30% !important;
+  align-self: center !important;
+  justify-content: center !important;
+}
+
+.verytall {
+  width: 100%;
+  align-self: center;
+ }
+
+.verytall p {
+  width: 100%;
+  align-self: center;
+  text-align: center !important;
+}
+
+.tall img {
+  height: auto !important;
+  width: 30%  !important;
+  left: 35% !important;
+  align-self: center !important;
+  justify-content: center !important;
+}
+
+.tall {
+  width: 100%;
+  align-self: center;
+ }
+
+.tall p {
+  width: 100%;
+  align-self: center;
+  justify-content: center;
+  text-align: center !important;
+}
+
+
+.small img {
+  height: auto !important;
+  width: 20%  !important;
+  left: 40% !important;
+  align-self: center !important;
+  justify-content: center !important;
+}
+
+.small {
+  width: 100%;
+  align-self: center;
+ }
+
+.small p {
+  width: 100%;
+  align-self: center;
+  justify-content: center;
+  text-align: center !important;
+}
+
+
+.square img {
+  height: auto !important;
+  width: 50%  !important;
+  left: 25% !important;
+  align-self: center !important;
+  justify-content: center ;
+}
+
+.square {
+  width: 100%;
+  align-self: center;
+ }
+
+.square p {
+  width: 100%;
+  align-self: center;
+  text-align: center  !important;
+}
+
 .workflowimg img {
   height: auto !important;
   width: 35%  !important;
   left: 33% !important;
   align-self: center !important;
-  justify-content: center !important;
 }
 
 .workflowimg {
   width: 100%;
   align-self: center;
-  justify-content: center !important;
  }
 
 .workflowimg p {
   width: 100%;
   align-self: center;
-  justify-content: center !important;
+  text-align: center !important;
 }
+
 
 ol {
   line-height: 0.5rem;

@@ -3,8 +3,9 @@ const exec = require('child_process').execSync
 const html_style = "+native_spans+native_divs"
 const md_style = "+fenced_divs+bracketed_spans+definition_lists+yaml_metadata_block"
 const slidy_style = "+native_spans+native_divs+fenced_divs+bracketed_spans"
-const acc_key = ""
-const secret_key = ""
+const acc_key = ""  /** enter your AWS_ACCESS_KEY_ID */
+const secret_key = "" /** enter your AWS_SECRET_ACCESS_KEY */
+
 
 
 /**
@@ -60,15 +61,14 @@ rule(`dist/%.mp4`, `dist/%.001.png`, function () {
 task('slides-html', ['dist/%-slides.html'])
 
 
-/** Default task: build HTML document */
+/** Default task: build full page HTML document */
 task('document-html', ['dist/%-document.html'])
 
-/** Build HTML files from slides */
+/** Build PDF files from slides */
 task('slides-pdf', ['dist/%-slides.pdf'])
 
 /** Build images */
 /** task('slides-img', ['dist/%.001.png']) */
-
 
 /** Build script */
 /** task('slides-script', ['dist/%.script']) */
