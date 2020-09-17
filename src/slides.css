@@ -68,20 +68,9 @@ div.section {
   margin: 2rem;
 }
 
-.slide_only {
-  display: inline ;
-  visibility:  visible ;
+.onslides{
+  visibility:  visible !important;
 }
-
-.slide_only p{
-  display: inline ;
-  visibility:  visible ;
-}
-
-.slide_only  h1 {
-  counter-increment: myPage;
-}
-
 
 html {
   font-size: 1rem;

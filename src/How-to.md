@@ -27,7 +27,7 @@ This work has initially been started with James Taylor and Jeff Leek's Lab, and 
 ::::::::::
 
 
-# [Introduction]{ .slide_only}
+# [Introduction]{ .onslides}
 
 
 ::::::::::::::::::::{ .two_col_one_row}
@@ -98,10 +98,10 @@ The original document is written in Markdown, and we start by creating two docum
 
 
 
-# [How it works]{ .slide_only}
+# [How it works]{ .onslides}
 
 
-## [Workflow]{ .slide_only}
+## [Workflow]{ .onslides}
 
 
 ::::{ .workflowimg}
@@ -119,10 +119,10 @@ From the same HTML slide show, we extract one image per slide, using a tool that
 :::::::::
 
 
-# [How it works]{ .slide_only}
+# [How it works]{ .onslides}
 
 
-## [Workflow]{ .slide_only}
+## [Workflow]{ .onslides}
 
 
 
@@ -140,10 +140,10 @@ From this 2 parts, we assemble the video with ari package. Ari is a R package th
 :::::::::
 
 
-# [How it works]{ .slide_only}
+# [How it works]{ .onslides}
 
 
-## [Workflow]{ .slide_only}
+## [Workflow]{ .onslides}
 
 
 
@@ -275,7 +275,7 @@ A content class is identified by a period followed by the class name, and its ID
 
 
 
-# [Pandoc Markdown]{ .slide_only}
+# [Pandoc Markdown]{ .onslides}
 
 
 ## Header
@@ -302,17 +302,17 @@ In Pandoc, One Basic structure of the document is the header. It contains metada
 
 A new slide is created for each level 1 header `# Header`.
 
-To avoid the repetition of titles in the Main Document, use the `.slide_only` class.
+To avoid the repetition of titles in the Main Document, use the `.onslides` class.
 
 ```
-# [Document Structure ]{ .slide_only}
+# [Document Structure ]{ .onslides}
 ```
 
 
-If you wish to hide a whole slide, use the `.slide_only` as such :
+If you wish to hide a whole slide, use the `.onslides` as such :
 
 ```
-# Document Structure { .slide_only}
+# Document Structure { .onslides}
 ```
 
 
@@ -322,14 +322,14 @@ Contrary to other conversion tools, you do not need to insert a line to separate
 :::::::::
 
 
-# [Document Structure]{ .slide_only}
+# [Document Structure]{ .onslides}
 
 
 ## Sets marking
 
 Class tags
 ~   `.document` :  in the hand-on document and not in the slide show
-~   `.slide_only` : in the slide show and not in the hand-on document
+~   `.onslides` : in the slide show and not in the hand-on document
 ~   `.spoken` : is read by the text-to-speech in the video
 
 
@@ -348,7 +348,7 @@ This table is useful, but impossible to present in a talk.
 | Scream  | 7/10 |
 ::::::::
 
-![](src/Images/table_doc.png){ .slide_only}
+![](src/Images/table_doc.png){ .onslides}
 
 ```
 
@@ -367,7 +367,7 @@ This table is useful, but impossible to present in a talk.
 
 ::::::::
 
-![](src/Images/table_doc.png){ .slide_only}
+![](src/Images/table_doc.png){ .onslides}
 
 :::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -413,19 +413,18 @@ The .document class :
 
 :::::{ .col}
 
-The .slide_only class :
+The .onslides class :
 
 -   In the slide css
 ```css
-.slide_only {
-  display: inline ;
+.onslides {
   visibility:  visible ;
 }
 ```
 
 -   In the document css
 ```css
-.slide_only {
+.onslides {
   display: none !important;
   visibility: hidden  !important;
   position: static;
@@ -472,10 +471,10 @@ The format of the output names is composed by the name of the original file, , w
 
 
 
-# [Usage]{ .slide_only}
+# [Usage]{ .onslides}
 
 
-## [Generate files]{ .slide_only}
+## [Generate files]{ .onslides}
 
 
 

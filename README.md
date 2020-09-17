@@ -62,7 +62,7 @@ Block of content
 
 ::::::::::::::::::
 
-# Line of content{ #name_id }
+[Line of content]{ #name_id }
 ```
 
 To end a block, the number of colons in the end line must be superior to the number of colons in the start line.
@@ -71,7 +71,7 @@ To end a block, the number of colons in the end line must be superior to the num
 
 To display content only in the main document, use `{ .document}`
 
-To display content only in the slides, use `{ .slide_only}`
+To display content only in the slides, use `{ .onslides}`
 
 To mark the content to be spoken in the videos, use `{ .spoken}`
 
@@ -232,14 +232,14 @@ In Pandoc, One Basic structure of the document is the header. It contains metada
 
 A new slide is created for each level 1 header `# Header`.
 
-To avoid the repetition of titles in the Main Document, use the `.slide_only` class.
+To avoid the repetition of titles in the Main Document, use the `.onslides` class.
 
 ```
 # [Document Structure ]{ .slide_only}
 ```
 
 
-If you wish to hide a whole slide, use the `.slide_only` as such :
+If you wish to hide a whole slide, use the `.onslides` as such :
 
 ```
 # Document Structure { .slide_only}
@@ -252,7 +252,7 @@ Contrary to other conversion tools, you do not need to insert a line to separate
 
 Class tags
 -   `.document` :  in the hand-on document and not in the slide show
--   `.slide_only` : in the slide show and not in the hand-on document
+-   `.onslides` : in the slide show and not in the hand-on document
 -   `.spoken` : is read by the text-to-speech in the video
 
 
@@ -296,15 +296,14 @@ Two separate css :
 
 -   In the slide css
 ```css
-.slide_only {
-  display: inline ;
+.onslides {
   visibility:  visible ;
 }
 ```
 
 -   In the document css
 ```css
-.slide_only {
+.onslides {
   display: none !important;
   visibility: hidden  !important;
   position: static;

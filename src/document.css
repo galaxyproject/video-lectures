@@ -27,11 +27,151 @@
   display: block;
 }
 
-.slide_only {
+.onslides {
   display: none ;
   visibility: hidden ;
   position: static;
 }
+
+
+
+img  {
+  width: 80%;
+  position: relative;
+  align-self: center;
+  visibility: visible;
+}
+
+.image  {
+  width: 80%;
+  position: relative;
+  align-self: center;
+  visibility: visible;
+  margin-left: 1em;
+  margin-right: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+
+
+.wide img {
+  height: auto !important;
+  width: 50%  !important;
+  left: 25% !important;
+  align-self: center !important;
+  justify-content: center !important;
+}
+
+.wide {
+  width: 100%;
+  align-self: center;
+ }
+
+.wide p {
+  width: 100%;
+  align-self: center;
+  text-align: center !important;
+}
+
+.verytall img {
+  height: auto !important;
+  width: 40%  !important;
+  left: 30% !important;
+  align-self: center !important;
+  justify-content: center !important;
+}
+
+.verytall {
+  width: 100%;
+  align-self: center;
+ }
+
+.verytall p {
+  width: 100%;
+  align-self: center;
+  text-align: center !important;
+}
+
+.tall img {
+  height: auto !important;
+  width: 30%  !important;
+  left: 35% !important;
+  align-self: center !important;
+  justify-content: center !important;
+}
+
+.tall {
+  width: 100%;
+  align-self: center;
+ }
+
+.tall p {
+  width: 100%;
+  align-self: center;
+  justify-content: center;
+  text-align: center !important;
+}
+
+
+.small img {
+  height: auto !important;
+  width: 20%  !important;
+  left: 40% !important;
+  align-self: center !important;
+  justify-content: center !important;
+}
+
+.small {
+  width: 100%;
+  align-self: center;
+ }
+
+.small p {
+  width: 100%;
+  align-self: center;
+  justify-content: center;
+  text-align: center !important;
+}
+
+
+.square img {
+  height: auto !important;
+  width: 50%  !important;
+  left: 25% !important;
+  align-self: center !important;
+  justify-content: center ;
+}
+
+.square {
+  width: 100%;
+  align-self: center;
+ }
+
+.square p {
+  width: 100%;
+  align-self: center;
+  text-align: center  !important;
+}
+
+.workflowimg img {
+  height: auto !important;
+  width: 35%  !important;
+  left: 33% !important;
+  align-self: center !important;
+}
+
+.workflowimg {
+  width: 100%;
+  align-self: center;
+ }
+
+.workflowimg p {
+  width: 100%;
+  align-self: center;
+  text-align: center !important;
+}
+
 
 div.section {
   background-color: white;
