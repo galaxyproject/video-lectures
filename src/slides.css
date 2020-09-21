@@ -10,7 +10,7 @@ div.section {
   counter-increment: myPage;
 }
 
-.firsttitle h1{
+.firstslide h1{
   font-size: 4rem ;
   vertical-align: center !important;
   justify-content: center;
@@ -24,6 +24,17 @@ div.section {
   align-content: center;
   align-self: center;
   padding: 2rem ;
+}
+
+.firstslide img{
+  justify-content: center;
+  position: fixed;
+  bottom: auto !important;
+  top: 40% !important;
+  width: 60%;
+  height: auto !important;
+  left: 20% !important;
+  align-self: center !important;
 }
 
 .warning{

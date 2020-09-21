@@ -56,6 +56,7 @@ img  {
 
 
 .wide img {
+  top: 1rem !important;
   height: auto !important;
   width: 50%  !important;
   left: 25% !important;
@@ -75,6 +76,7 @@ img  {
 }
 
 .verytall img {
+  top: 1rem !important;
   height: auto !important;
   width: 40%  !important;
   left: 30% !important;
@@ -94,9 +96,10 @@ img  {
 }
 
 .tall img {
+  top: 1rem !important;
   height: auto !important;
-  width: 30%  !important;
-  left: 35% !important;
+  width: 50%  !important;
+  left: 25% !important;
   align-self: center !important;
   justify-content: center !important;
 }
@@ -115,6 +118,7 @@ img  {
 
 
 .small img {
+  top: 1rem !important;
   height: auto !important;
   width: 20%  !important;
   left: 40% !important;
@@ -136,9 +140,10 @@ img  {
 
 
 .square img {
+  top: 1rem !important;
   height: auto !important;
-  width: 50%  !important;
-  left: 25% !important;
+  width: 70%  !important;
+  left: 15% !important;
   align-self: center !important;
   justify-content: center ;
 }
@@ -155,6 +160,7 @@ img  {
 }
 
 .workflowimg img {
+  top: 1rem !important;
   height: auto !important;
   width: 35%  !important;
   left: 33% !important;
