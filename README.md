@@ -217,14 +217,18 @@ A content class is identified by a period followed by the class name, and its ID
 ```
 
 ---
-title: "How to build a wonderful presentation"
+title: "An awesome presentation"
 author: "Miss Bumblebee"
----
+layout: true
+lang: en-GB
+keywords: ["training", "workshop"]
+...
 
 ```
 
 
-In Pandoc, One Basic structure of the document is the header. It contains metadata about the document, and generally require a title, date, and authors. It is used to build a cover slide containing the metadata. For the moment, this slide is deactivated because it causes problems with the parsing looking for speech paragraphs. The video cannot be built with a discordance between the number of slides and the lines of text. As we cannot modify the title slide, we can't  generate enough lines for the voice.
+In Pandoc, One Basic structure of the document is the header. It contains metadata about the document, and generally require a title, date, and authors.
+It is used to build a cover slide containing the metadata. For the moment, this slide is deactivated because it causes problems with the parsing looking for speech paragraphs. The video cannot be built with a discordance between the number of slides and the lines of text. As we cannot modify the title slide, we can't  generate enough lines for the voice.
 
 
 
@@ -235,14 +239,14 @@ A new slide is created for each level 1 header `# Header`.
 To avoid the repetition of titles in the Main Document, use the `.onslides` class.
 
 ```
-# [Document Structure ]{ .slide_only}
+# [Document Structure ]{ .onslides}
 ```
 
 
 If you wish to hide a whole slide, use the `.onslides` as such :
 
 ```
-# Document Structure { .slide_only}
+# Document Structure { .onslides}
 ```
 
 Contrary to other conversion tools, you do not need to insert a line to separate slides in pandoc markdown. The change of slide is done at each top level header. This permits to  not have random lines appearing in the hands-on  document. If you wish to continue display a title across several slides, use the slide only tag to hide the additional titles in the main HTML document. You can also use the same tag on the main slide title to silence the whole slide.
@@ -259,7 +263,7 @@ Class tags
 
 
 The three tags used to mark the different sets of content are : document, slide only, and spoken. They can be used interchangeably for paragraphs or in line text. The document tag hide the content of the block in the slide show, but displays it in the hands-on document.
-The slide_only tag hide the content in the hand-on document and display it in the slide show.
+The onslides tag hide the content in the hand-on document and display it in the slide show.
 
 
 # Formatting with css
@@ -292,7 +296,7 @@ Two separate css :
 ```
 
 
-**The .slide_only class**
+**The .onslides class**
 
 -   In the slide css
 ```css

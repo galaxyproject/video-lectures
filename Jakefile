@@ -2,7 +2,7 @@ const { task, rule, Task } = require('jake')
 const exec = require('child_process').execSync
 const html_style = "+native_spans+native_divs"
 const md_style = "+fenced_divs+bracketed_spans+definition_lists+yaml_metadata_block"
-const slidy_style = "+native_spans+native_divs+fenced_divs+bracketed_spans"
+const slidy_style = ""
 const acc_key = ""  /** enter your AWS_ACCESS_KEY_ID */
 const secret_key = "" /** enter your AWS_SECRET_ACCESS_KEY */
 

@@ -1,5 +1,7 @@
-conda install -y r-essentials nodejs
+conda install -y r-essentials nodejs pandoc
 conda install -y -c conda-forge ffmpeg weasyprint
+
+
 
 npm install yarn
 yarn add jake
