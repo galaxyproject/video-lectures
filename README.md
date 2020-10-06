@@ -3,6 +3,10 @@
 Framework to generate HTML, slides (HTML, pdf, images) and narrated videos (using ari) from markdown.
 
 
+| [Demo](https://github.com/galaxyproject/video-lectures/tree/master/dist/BCC2020)  |
+|-----------------------------------------|
+
+
 ## Installation
 
 Download and install https://wkhtmltopdf.org/downloads.html
