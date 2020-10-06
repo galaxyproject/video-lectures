@@ -7,6 +7,43 @@ keywords: ["training", "workshop"]
 header-in : "[Hello everyone.]{ .spoken}"
 ...
 
+<style>
+
+
+h1::before {
+  color: black;
+  background: #D5D8DC;
+  position: fixed;
+  bottom: 2%;
+  text-align:right;
+  font-size: 1rem !important;
+  width:100%;
+  left: -10px !important;
+  right: 0;
+  padding-right: 20% !important;
+  margin: 0px !important;
+  content: 'Automated generation of training materials from markdown documents' ;
+}
+
+
+.maintitle h1::before {
+  color: black;
+  background: #D5D8DC;
+  position: fixed;
+  bottom: 2%;
+  text-align:right;
+  font-size: 1rem !important;
+  width:100%;
+  left: -10px !important;
+  right: 0;
+  padding-right: 20% !important;
+  margin: 0px !important;
+  content: 'Automated generation of training materials from markdown documents' ;
+}
+
+
+</style>
+
 :::{ .firsttitle}
 # Automated generation of training materials from markdown documents
 :::::::::
@@ -512,8 +549,8 @@ References :
 ~   Ari : [https://github.com/jhudsl/ari](https://github.com/jhudsl/ari)
 ~   Pandoc : [https://pandoc.org/](https://pandoc.org/)
 ~   wkhtmltoimage : [https://wkhtmltopdf.org/](https://wkhtmltopdf.org/)
-~   Github repository [git@github.com:Delphine-L/covid-lessons.git](git@github.com:Delphine-L/covid-lessons.git)
-~   Slides : [https://github.com/Delphine-L/covid-lessons/blob/master/How-to-slides.html](https://github.com/Delphine-L/covid-lessons/blob/master/How-to-slides.html)
+~   Github repository [https://github.com/galaxyproject/video-lectures/](https://github.com/galaxyproject/video-lectures/)
+~   Slides : [https://github.com/galaxyproject/video-lectures/blob/master/dist/BCC2020/How-to-slides.pdf](https://github.com/galaxyproject/video-lectures/blob/master/dist/BCC2020/How-to-slides.pdf)
 
 Authors :
 ~   Delphine Larivière
