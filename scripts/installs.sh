@@ -1,6 +1,6 @@
 conda install -y r-essentials nodejs pandoc
 conda install -y -c conda-forge ffmpeg weasyprint
-
+pip install weasyprint
 
 
 npm install yarn
