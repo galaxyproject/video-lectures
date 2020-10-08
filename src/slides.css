@@ -43,16 +43,6 @@ div.section {
   bottom: 3em;
 }
 
-.authorinfo{
-  font-size: 1rem;
-  position: static;
-  align-self: center !important;
-  justify-content: center !important;
-  margin-bottom: 5rem !important;
-  text-align: center !important;
-}
-
-
 
 .maintitle h1 {
   vertical-align: center !important;
@@ -119,13 +109,7 @@ h1 {
 }
 
 
-.personal_class {
-  background-color: #EBEDEF;
-  border:1px solid #212F3C;
-  align-items: center;
-  padding: 1rem;
-  margin-top: 2rem;
-}
+
 
 h2 {
   font-size: 3rem;
@@ -144,8 +128,6 @@ h3 {
   -moz-hyphens: none;
   counter-increment: myPage;
 }
-
-
 
 .document {
   display: none;
@@ -192,19 +174,6 @@ h3 {
   position: relative;
 }
 
-
-.legend {
-  vertical-align: bottom;
-  span: 2;
-  text-align: center;
-  position:  static;
-  display: block;
-  clear: both;
-  margin-left: 3em;
-  margin-right: 3em;
-}
-
-
 .col p {
   font-size: 80%;
   align-self: center;
@@ -221,16 +190,6 @@ h3 {
 }
 
 
-.double{
-  width: 100%;
-  align-self: center;
-  vertical-align: middle;
-  padding: 2rem;
-  display: table;
-  clear: both;
-  align-items: center;
-  position: relative;
-}
 
 pre {
   font-family: inherit;
@@ -275,53 +234,113 @@ table {
   color: transparent!important;
 }
 
-
-
 img  {
-  width: 80%;
   position: relative;
   align-self: center;
   visibility: visible;
 }
 
-.image  {
-  width: 80%;
-  position: relative;
-  align-self: center;
-  visibility: visible;
-  margin-left: 1em;
-  margin-right: 1em;
-  padding-left: 2em;
-  padding-right: 2em;
-}
 
 
 
 .wide img {
-  height: auto !important;
-  width: 50%  !important;
-  left: 25% !important;
-  align-self: center !important;
-  justify-content: center !important;
+  max-height: 100%;
+  max-width: 100%  ;
+  display: block;
+  margin: 0 auto;
 }
 
 .wide {
-  width: 100%;
-  align-self: center;
+  width: 80rem;
+  height:auto;
+  display: block;
+  margin: 0 auto
  }
 
 .wide p {
   width: 100%;
   align-self: center;
-  text-align: center !important;
+  text-align: center;
 }
 
+
+.tall img {
+  height: inherit;
+  max-width: 100%;
+  max-height: 60rem;
+  display: block;
+  margin: 0 auto;
+}
+
+.tall {
+  width: auto;
+ }
+
+.tall p {
+  width: inherit;
+  height: auto;
+  text-align: center;
+}
+
+
+.small img {
+  max-height: 20rem;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.small {
+  height: 20%;
+  width: auto;
+  align-self: center;
+ }
+
+.small p {
+  width: inherit%;
+  align-self: center;
+  text-align: center;
+}
+
+.square img {
+  max-height: 100%;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.square {
+  width: auto;
+  height: 60rem;
+  align-self: center;
+ }
+
+.square p {
+  width: 100%;
+  align-self: center;
+  text-align: center;
+}
+
+
+
+ol {
+  line-height: 0.5rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+ul {
+}
+
+
+/* ------------------------------Obsolete, do not use -----------------------------------------*/
+
 .verytall img {
-  height: auto !important;
-  width: 40%  !important;
-  left: 30% !important;
-  align-self: center !important;
-  justify-content: center !important;
+  max-height: 60% ;
+  width: auto;
+  align-self: center ;
+  display: block;
+  margin: 0 auto;
 }
 
 .verytall {
@@ -332,74 +351,7 @@ img  {
 .verytall p {
   width: 100%;
   align-self: center;
-  text-align: center !important;
-}
-
-.tall img {
-  height: auto !important;
-  width: 30%  !important;
-  left: 35% !important;
-  align-self: center !important;
-  justify-content: center !important;
-}
-
-.tall {
-  width: 100%;
-  align-self: center;
- }
-
-.tall p {
-  width: 100%;
-  align-self: center;
-  justify-content: center;
-  text-align: center !important;
-}
-
-
-.small img {
-  height: auto !important;
-  width: 20%  !important;
-  left: 40% !important;
-  align-self: center !important;
-  justify-content: center !important;
-}
-
-.small {
-  width: 100%;
-  align-self: center;
- }
-
-.small p {
-  width: 100%;
-  align-self: center;
-  justify-content: center;
-  text-align: center !important;
-}
-
-
-.square img {
-  height: auto !important;
-  width: 50%  !important;
-  left: 25% !important;
-  align-self: center !important;
-  justify-content: center !important;
-}
-
-.square {
-  width: 100%;
-  align-self: center;
- }
-
-.square p {
-  width: 100%;
-  align-self: center;
-  text-align: center  !important;
-}
-
-.workflowimg img {
-  height: auto !important;
-  width: 35%  !important;
-  align-self: center !important;
+  text-align: center;
 }
 
 .workflowimg {
@@ -413,12 +365,61 @@ img  {
   text-align: center !important;
 }
 
-
-ol {
-  line-height: 0.5rem;
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
+.workflowimg img {
+  height: auto !important;
+  width: 35%  !important;
+  align-self: center !important;
 }
 
-ul {
+.legend {
+  vertical-align: bottom;
+  span: 2;
+  text-align: center;
+  position:  static;
+  display: block;
+  clear: both;
+  margin-left: 3em;
+  margin-right: 3em;
 }
+
+.double{
+  width: 100%;
+  align-self: center;
+  vertical-align: middle;
+  padding: 2rem;
+  display: table;
+  clear: both;
+  align-items: center;
+  position: relative;
+}
+
+
+.authorinfo{
+  font-size: 1rem;
+  position: static;
+  align-self: center !important;
+  justify-content: center !important;
+  margin-bottom: 5rem !important;
+  text-align: center !important;
+}
+
+.personal_class {
+  background-color: #EBEDEF;
+  border:1px solid #212F3C;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.image  {
+  position: relative;
+  align-self: center;
+  visibility: visible;
+  margin-left: 1em;
+  margin-right: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+
+/* ------------------------------------------------------------------------------------------*/
