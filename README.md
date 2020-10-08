@@ -3,8 +3,8 @@
 Framework to generate HTML, slides (HTML, pdf, images) and narrated videos (using ari) from markdown.
 
 
-| [Demo](https://github.com/galaxyproject/video-lectures/tree/master/dist/BCC2020)  |
-|-----------------------------------------|
+| [Demo](https://github.com/galaxyproject/video-lectures/tree/master/dist/BCC2020)  | [Slides Template](https://github.com/galaxyproject/video-lectures/blob/master/src/Template.md) |
+|-----------------------------------------|-----------------------------------------|
 
 
 ## Installation
