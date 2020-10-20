@@ -113,7 +113,7 @@ First, I will talk about the general processing workflow and tools that we used 
 
 ::::::::::
 
-# [How it works]{.bignbold} { .maintitle}
+# [How it works] { .maintitle}
 
 
 ## Workflow
@@ -194,7 +194,7 @@ All the tools are encapsulated in scripts managed with yarn. You simply need to 
 :::::::::
 
 
-# [Create your base material]{.bignbold .maintitle}
+# [Create your base material]{ .maintitle}
 
 
 The document contains :
@@ -418,7 +418,7 @@ Finally, I am currently voicing the content of the spoken tag, that does not app
 :::::::::
 
 
-# [Formatting with css]{.bignbold} { .maintitle}
+# [Formatting with css]{ .maintitle}
 
 Two separate css :
 ~   One for the slides
@@ -480,7 +480,7 @@ We hide the different content by changing the display and visibility parameters 
 That is were a standalone HTML file is useful, the css is passed as an argument to the pandoc tool, and does not need to be specified in the Markdown document. It allows to truly have the same original document for all supports.
 :::::::::
 
-# [Usage]{.bignbold} { .maintitle}
+# [Usage]{ .maintitle}
 
 
 ## Generate files
