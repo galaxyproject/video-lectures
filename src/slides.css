@@ -337,26 +337,12 @@ ol {
 ul {
 }
 
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
 /* ------------------------------Obsolete, do not use -----------------------------------------*/
-
-.verytall img {
-  max-height: 60%;
-  width: auto;
-  align-self: center;
-  display: block;
-  margin: 0 auto;
-}
-
-.verytall {
-  width: 100%;
-  align-self: center;
-}
-
-.verytall p {
-  width: 100%;
-  align-self: center;
-  text-align: center;
-}
 
 .workflowimg {
   width: 100%;
