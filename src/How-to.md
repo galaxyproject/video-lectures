@@ -321,8 +321,10 @@ A content class is identified by a period followed by the class name, and its ID
 ```
 
 ---
+
 title: "How to build a wonderful presentation"
 author: "Miss Bumblebee"
+
 ---
 
 ```
@@ -342,14 +344,18 @@ A new slide is created for each level 1 header `# Header`.
 To avoid the repetition of titles in the Main Document, use the `.onslides` class.
 
 ```
+
 # [Document Structure ]{ .onslides}
+
 ```
 
 
 If you wish to hide a whole slide, use the `.onslides` as such :
 
 ```
+
 # Document Structure { .onslides}
+
 ```
 
 
@@ -376,18 +382,20 @@ Class tags
 ::::::::::{ .col}
 
 ```
+
 :::::{ .document}
 This table is useful, but impossible to present in a talk.
 
-| Movie | Note |
-|:-----:|:----:|
-| The exorcist  | 8/10 |
-| Scream  | 7/10 |
+|    Movie     | Note |
+| :----------: | :--: |
+| The exorcist | 8/10 |
+|    Scream    | 7/10 |
+
 ::::::::
 
-![](src/Images/table_doc.png){ .onslides}
+![](src/Images/table_doc.png){ .img-fluid .onslides}
 
-```
+````
 
 ::::::::::::::::::::
 
@@ -436,8 +444,10 @@ The .document class :
 .document {
   display: none;
 }
-```
--   In the document css
+````
+
+- In the document css
+
 ```css
 .document {
   display: block;
@@ -452,25 +462,25 @@ The .document class :
 
 The .onslides class :
 
--   In the slide css
+- In the slide css
+
 ```css
 .onslides {
-  visibility:  visible ;
+  visibility: visible;
 }
 ```
 
--   In the document css
+- In the document css
+
 ```css
 .onslides {
   display: none !important;
-  visibility: hidden  !important;
+  visibility: hidden !important;
   position: static;
 }
 ```
 
 ::::::::::
-
-
 
 ::::::::::::::::::::::::::::::::::::::::
 
@@ -482,15 +492,14 @@ That is were a standalone HTML file is useful, the css is passed as an argument 
 
 # [Usage]{ .maintitle}
 
-
 ## Generate files
-
 
 Note: The files will not be generated if files with the same name exist, be sure to remove previous runs from the destination folder.
 
 To generate the files from an original document `How-to.md`
 
 - Document
+
 ```
 yarn jake dist/How-to-document.html
 ```
@@ -506,14 +515,9 @@ Using the tools are made very easy by the usage of yarn.
 The format of the output names is composed by the name of the original file, , without extension, and the specific suffix of each output : document dot HTML for the hands-on material, slides dot HTML for the slide show, and slides dot MP four for the video.
 :::::::::
 
-
-
 # [Usage]{ .onslides}
 
-
 ## [Generate files]{ .onslides}
-
-
 
 - Video
 
@@ -521,53 +525,47 @@ The format of the output names is composed by the name of the original file, , w
 yarn jake dist/How-to-slides.mp4
 ```
 
-
 Important for the generation of the video :
-~   Need of AWS access ID
-~   Modify the script run_ari_spin.R to use it
+~ Need of AWS access ID
+~ Modify the script run_ari_spin.R to use it
 
 ```
 Sys.setenv("AWS_ACCESS_KEY_ID" = " ","AWS_SECRET_ACCESS_KEY" = " ","AWS_DEFAULT_REGION" = "us-east-2")
 
 ```
 
-
 :::::{ .spoken .document}
 All the script and options are in the Jakefile running the different workflows. The parameters are hard coded for now, including the AWS login that needs to be entered in the R script using the ari package. In the future, we will gather all the parameters in a single parameter file for an easier use.
 :::::::::
 
-
-
 # Thank You
 
 Futur of the project:
-~   Adapt the workflow to Jekyll and GTN CSS
-~   Wrap the workflow in Galaxy
-~   Create a unique Parameter file
+~ Adapt the workflow to Jekyll and GTN CSS
+~ Wrap the workflow in Galaxy
+~ Create a unique Parameter file
 
 References :
-~   Ari : [https://github.com/jhudsl/ari](https://github.com/jhudsl/ari)
-~   Pandoc : [https://pandoc.org/](https://pandoc.org/)
-~   wkhtmltoimage : [https://wkhtmltopdf.org/](https://wkhtmltopdf.org/)
-~   Github repository [https://github.com/galaxyproject/video-lectures/](https://github.com/galaxyproject/video-lectures/)
-~   Slides : [https://github.com/galaxyproject/video-lectures/blob/master/dist/BCC2020/How-to-slides.pdf](https://github.com/galaxyproject/video-lectures/blob/master/dist/BCC2020/How-to-slides.pdf)
+~ Ari : [https://github.com/jhudsl/ari](https://github.com/jhudsl/ari)
+~ Pandoc : [https://pandoc.org/](https://pandoc.org/)
+~ wkhtmltoimage : [https://wkhtmltopdf.org/](https://wkhtmltopdf.org/)
+~ Github repository [https://github.com/galaxyproject/video-lectures/](https://github.com/galaxyproject/video-lectures/)
+~ Slides : [https://github.com/galaxyproject/video-lectures/blob/master/dist/BCC2020/How-to-slides.pdf](https://github.com/galaxyproject/video-lectures/blob/master/dist/BCC2020/How-to-slides.pdf)
 
 Authors :
-~   Delphine Larivière
-~   Frederick Tan
-~   John Muschelli
-~   James Taylor
-~   Jeff Leek
-~   The Galaxy Project
-
-
+~ Delphine Larivière
+~ Frederick Tan
+~ John Muschelli
+~ James Taylor
+~ Jeff Leek
+~ The Galaxy Project
 
 :::::{ .spoken }
 To all of you who have been preparing talks for this conference, I know you understand the struggle of adding correction to a talk video. The text-to-speech technology solve this problem, as it only necessitate editing text.
 Another advantage of this project is the centralization of all content in a unique document, making maintenance of the material much easier.
 In this project future, we want to adapt this tool to the jekyll software used by the Galaxy Training Network to convert markdown to HTML. This would permit an easier maintenance of tutorials, and the opportunity to propose video lecture. Ideally, this would become a workflow in Galaxy for an easy use.
 
-Thank you for your attention. And thank you to  my co-authors and the Galaxy Project ,
+Thank you for your attention. And thank you to my co-authors and the Galaxy Project ,
 
 I regret to not be able to be here for the question session of the Eastern hemisphere, but please don't hesitate to find me in a Bird of a feather event, or to contact me on the BCC 2020 discord if you have any question.
 :::::::::

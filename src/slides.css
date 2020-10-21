@@ -34,7 +34,22 @@ a:link {
   color: var(--gx-blue-dark);
 }
 
+.toolbar a:hover,
 a:hover {
+  color: var(--gx-blue-light);
+}
+
+/* toolbar overrides */
+.toolbar a:link,
+.toolbar a:visited {
+  color: var(--gx-gray-dark);
+}
+
+div.toolbar {
+  color: var(--gx-gray-dark);
+}
+
+.toolbar a:hover {
   color: var(--gx-blue-light);
 }
 
@@ -99,7 +114,7 @@ h1 {
 }
 
 .maintitle h1 {
-  vertical-align: center !important;
+  /* invalid css for 'block' element vertical-align: center !important; */
   width: 100%;
   left: 0;
   top: 50%;
@@ -141,6 +156,7 @@ h3 {
 .reveal h2,
 .reveal h3 {
   word-wrap: normal;
+  hyphens: none;
   -moz-hyphens: none;
   counter-increment: myPage;
 }
@@ -304,7 +320,7 @@ img {
 }
 
 .small p {
-  width: inherit%;
+  width: inherit;
   align-self: center;
   text-align: center;
 }
@@ -328,13 +344,11 @@ img {
   text-align: center;
 }
 
+ul,
 ol {
   line-height: 0.5rem;
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
-}
-
-ul {
 }
 
 .img-fluid {
@@ -362,8 +376,6 @@ ul {
 }
 
 .legend {
-  vertical-align: bottom;
-  span: 2;
   text-align: center;
   position: static;
   display: block;
