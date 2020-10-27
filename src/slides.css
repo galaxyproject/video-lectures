@@ -26,6 +26,10 @@ html {
   overflow: hidden;
 }
 
+@page {
+  size: 1in 2in;
+}
+
 body {
   color: white;
 }
@@ -88,12 +92,11 @@ div.section {
 h1,
 h2,
 h3 {
-  color: var(--gx-orange-dark);
+  color:  #fe7f02;
 }
 
 h1 {
   font-size: 4rem;
-  counter-increment: myPage;
   padding: 1rem;
   margin-bottom: 3rem;
   justify-content: center;
@@ -110,6 +113,7 @@ h1 {
   align-content: center;
   align-self: center;
   padding: 2rem;
+  font-size: 4rem;
 }
 
 .maintitle h1 {
@@ -172,6 +176,7 @@ h3 {
   padding: 0rem 1rem 2rem 1rem;
   margin: 1rem;
   border: 1px solid #aeb6bf;
+  font-size: 60% ;
 }
 
 .two_col_one_row::after {
@@ -195,21 +200,23 @@ h3 {
   padding: 0rem 1rem 2rem 1rem;
   margin: 1rem;
   border: 1px solid #aeb6bf;
+  font-size: 60%;
 }
 
 .col {
-  width: 50%;
+  width: 45%;
   float: left;
   align-self: center;
   position: relative;
+  padding: 2rem;
 }
 
 .col p {
-  font-size: 80%;
   align-self: center;
   justify-content: center;
   margin: 1rem;
   position: relative;
+  font-size: inherit;
 }
 
 .col img {
@@ -265,45 +272,46 @@ img {
   position: relative;
   align-self: center;
   visibility: visible;
+  border-radius: 25px;
 }
 
 .wide img {
-  max-height: 100%;
+  max-height: 30rem;
   max-width: 100%;
   display: block;
   margin: 0 auto;
 }
 
 .wide {
-  width: 80rem;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+  width: auto;
 }
 
 .wide p {
   width: 100%;
   align-self: center;
   text-align: center;
+  font-size: inherit;
 }
 
-.tall img {
-  height: inherit;
+
+.square img {
+  max-height: 30rem;
   max-width: 100%;
-  max-height: 60rem;
   display: block;
   margin: 0 auto;
 }
 
-.tall {
+.square {
   width: auto;
 }
 
-.tall p {
-  width: inherit;
-  height: auto;
+.square p {
+  width: 100%;
+  align-self: center;
   text-align: center;
+  font-size: inherit;
 }
+
 
 .small img {
   max-height: 20rem;
@@ -322,25 +330,26 @@ img {
   width: inherit;
   align-self: center;
   text-align: center;
+  font-size: inherit;
 }
 
-.square img {
-  max-height: 100%;
+.tall img {
+  height: inherit;
   max-width: 100%;
+  max-height: 30rem;
   display: block;
   margin: 0 auto;
 }
 
-.square {
+.tall {
   width: auto;
-  height: 60rem;
-  align-self: center;
 }
 
-.square p {
-  width: 100%;
-  align-self: center;
+.tall p {
+  width: inherit;
+  height: auto;
   text-align: center;
+  font-size: inherit;
 }
 
 ul,
