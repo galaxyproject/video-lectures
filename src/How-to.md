@@ -113,7 +113,7 @@ First, I will talk about the general processing workflow and tools that we used 
 
 ::::::::::
 
-# [How it works] { .maintitle}
+# [How it works]{ .maintitle}
 
 
 ## Workflow
