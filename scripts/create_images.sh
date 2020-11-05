@@ -16,10 +16,8 @@ strcount=`wc -l ${script}`
 
 count=($(echo $strcount | tr -s " " " "))
 
-
-
 for i in $(seq 1 1 $count) ;
 do
 numero=`printf "%03d" $i`
-wkhtmltoimage -f png --height 990 --width 1760 --enable-javascript --javascript-delay 5000 "${htmldoc}#(${i})" "${output}.${numero}.png"
+wkhtmltoimage -f png --user-style-sheet slides.css --minimum-font-size 18 --enable-local-file-access --height 990 --width 1760 --enable-javascript --javascript-delay 5000 "${htmldoc}#(${i})" "${output}.${numero}.png"
 done
